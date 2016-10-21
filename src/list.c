@@ -1,31 +1,47 @@
 #include "list.h"
 #include <stdlib.h>
+static list* list_new(void* data)
+{
+	list* ls = (list*)malloc(sizeof(list));
+	if (ls)
+		ls->data = data;
+	return ls;
+}
 list* list_insert(list* ls, void* data, int idx)
 {
-	list* pre_nd=NULL;
-	list* new_nd=NULL;
-	list* _ls = ls;
 	int i = 0;
+	list* pre_ls = NULL;
+	list* _ls = ls;
+	list* new_ls = NULL;
+	if (idx < 0) return ls;
+	if (!ls&&idx == 0) {
+		new_ls = list_new(data);
+		if (new_ls)
+			new_ls->next = new_ls;
+		return new_ls;
+	}
 	while (i < idx&&_ls) {
-		pre_nd = _ls;
+		pre_ls = _ls;
 		_ls = _ls->next;
 		i++;
 	}
-	new_nd=(list*)malloc(sizeof(list));
-	if (!new_nd) return ls;
-	new_nd->data = data;
-	if (pre_nd) {
-		new_nd->next=pre_nd->next;
-		pre_nd->next = new_nd;
-		return ls;
-	} else {
-		new_nd->next = ls;
-		return new_nd;
+	if (i != idx) return ls;
+	new_ls = list_new(data);
+	if (!new_ls) return ls;
+	if (pre_ls) {
+		new_ls->next = pre_ls->next;
+		pre_ls->next = new_ls;
 	}
+	else {
+		new_ls->next = ls->next;
+		ls->next = new_ls;
+	}
+	return ls;
 }
 
 void* list_query(list* ls, int idx)
 {
+	if (idx < 0) return NULL;
 	list* _ls = ls;
 	int i = 0;
 	while (i < idx&&_ls) {

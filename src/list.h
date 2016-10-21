@@ -8,5 +8,6 @@ struct _list {
 };
 list* list_insert(list* ls, void* data, int idx);
 void* list_query(list* ls, int idx);
+list* josephus(list* ls, int n, int m);
 
 #endif // !LIST_H
