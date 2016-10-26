@@ -1,13 +1,15 @@
 #ifndef LIST_H
 #define LIST_H
 
+typedef int(*compare_func)(void* max,void* min);
 typedef struct _list list;
 struct _list {
 	void* data;
 	struct _list* next;
 };
+list* list_new(void* data);
 list* list_insert(list* ls, void* data, int idx);
 void* list_query(list* ls, int idx);
-list* josephus(list* ls, int n, int m);
+list* list_merge(list* x, list* y,compare_func cmp);
 
 #endif // !LIST_H

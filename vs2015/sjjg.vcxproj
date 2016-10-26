@@ -19,11 +19,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\clist.h" />
     <ClInclude Include="..\src\list.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\clist.c" />
     <ClCompile Include="..\src\josephus.c" />
     <ClCompile Include="..\src\list.c" />
+    <ClCompile Include="..\src\merge.c" />
+    <ClCompile Include="..\src\node.c" />
+    <ClCompile Include="..\src\reverse.c" />
     <ClCompile Include="..\src\test.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

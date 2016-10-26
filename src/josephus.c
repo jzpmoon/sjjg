@@ -1,6 +1,6 @@
-#include "list.h"
+#include "clist.h"
 #include <stdio.h>
-list* josephus(list* ls,int n,int m)
+list* clist_josephus(list* ls,int n,int m)
 {
 	list* _ls = ls;
 	list* josephus_ls_head = NULL;

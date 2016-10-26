@@ -18,15 +18,30 @@
     <ClInclude Include="..\src\list.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\clist.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\josephus.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\list.c">
+    <ClCompile Include="..\src\test.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\test.c">
+    <ClCompile Include="..\src\reverse.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\merge.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\node.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\clist.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\list.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
