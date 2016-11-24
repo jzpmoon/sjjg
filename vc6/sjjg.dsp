@@ -85,6 +85,10 @@ LINK32=link.exe
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 # Begin Source File
 
+SOURCE=.\..\src\clist.c
+# End Source File
+# Begin Source File
+
 SOURCE=..\src\josephus.c
 # End Source File
 # Begin Source File
@@ -93,7 +97,23 @@ SOURCE=.\..\src\list.c
 # End Source File
 # Begin Source File
 
+SOURCE=.\..\src\merge.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\..\src\node.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\..\src\reverse.c
+# End Source File
+# Begin Source File
+
 SOURCE=.\..\src\test.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\src\tree.c
 # End Source File
 # End Group
 # Begin Group "Header Files"
@@ -101,7 +121,19 @@ SOURCE=.\..\src\test.c
 # PROP Default_Filter "h;hpp;hxx;hm;inl"
 # Begin Source File
 
+SOURCE=.\..\src\clist.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\..\src\list.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\src\tree.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\src\type.h
 # End Source File
 # End Group
 # Begin Group "Resource Files"

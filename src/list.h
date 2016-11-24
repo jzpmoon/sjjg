@@ -1,6 +1,6 @@
 #ifndef LIST_H
 #define LIST_H
-
+#include "type.h"
 typedef int(*compare_func)(void* max,void* min);
 typedef struct _list list;
 struct _list {
