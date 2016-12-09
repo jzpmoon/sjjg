@@ -21,7 +21,6 @@ list* clist_josephus(list* ls,int n,int m)
 			josephus_ls_tail->next = _ls->next;
 			josephus_ls_tail = josephus_ls_tail->next;
 		}
-		printf("%s\n", (char*)_ls->next->data);
 		_ls->next = _ls->next->next;
 		_ls = _ls->next;
 		i--;

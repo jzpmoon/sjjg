@@ -21,6 +21,8 @@
   <ItemGroup>
     <ClInclude Include="..\src\clist.h" />
     <ClInclude Include="..\src\list.h" />
+    <ClInclude Include="..\src\tree.h" />
+    <ClInclude Include="..\src\type.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\clist.c" />
@@ -30,6 +32,7 @@
     <ClCompile Include="..\src\node.c" />
     <ClCompile Include="..\src\reverse.c" />
     <ClCompile Include="..\src\test.c" />
+    <ClCompile Include="..\src\tree.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{F6C69699-1A4C-4A83-B90E-27099A9B1CB7}</ProjectGuid>

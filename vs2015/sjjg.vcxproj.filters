@@ -21,6 +21,12 @@
     <ClInclude Include="..\src\clist.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\tree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\type.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\josephus.c">
@@ -42,6 +48,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\src\list.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\tree.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

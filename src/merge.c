@@ -27,8 +27,8 @@ list* list_merge(list* x, list* y, compare_func cmp)
 			}
 			else
 			{
-				_x->next = y->next;
-				y->next = _x;
+				_x->next = y;
+				y = _x;
 				pre_y = _x;
 			}
 			_x = next_x;

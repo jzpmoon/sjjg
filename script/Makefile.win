@@ -1,0 +1,32 @@
+bin=sjjg.exe
+build_path=./
+src_path=../src/
+src=list.c clist.c josephus.c merge.c reverse.c tree.c test.c
+obj=list.obj clist.obj josephus.obj merge.obj reverse.obj tree.obj test.obj node.obj
+header=$(src_path)list.h $(src_path)clist.h $(src_path)tree.h $(src_path)type.h
+LD=link
+CC=cl
+OUT=/OUT:
+C=/c
+I=/I
+D=/Zi
+$(build_path)$(bin):$(obj)
+	$(LD) /DEBUG $(OUT)$@ $(obj)
+list.obj:$(src_path)list.c
+	$(CC) $(C) $(D) $(src_path)list.c $(I) $(src_path)
+clist.obj:$(src_path)clist.c
+	$(CC) $(C) $(D) $(src_path)clist.c $(I) $(src_path)
+node.obj:$(src_path)node.c
+	$(CC) $(C) $(D) $(src_path)node.c $(I) $(src_path)
+josephus.obj:$(src_path)josephus.c
+	$(CC) $(C) $(D) $(src_path)josephus.c $(I) $(src_path)
+merge.obj:$(src_path)merge.c
+	$(CC) $(C) $(D) $(src_path)merge.c $(I) $(src_path)
+reverse.obj:$(src_path)reverse.c
+	$(CC) $(C) $(D) $(src_path)reverse.c $(I) $(src_path)
+tree.obj:$(src_path)tree.c
+	$(CC) $(C) $(D) $(src_path)tree.c $(I) $(src_path)
+test.obj:$(src_path)test.c
+	$(CC) $(C) $(D) $(src_path)test.c $(I) $(src_path)
+clean:
+	del *.obj $(bin) *.ilk *.pdb

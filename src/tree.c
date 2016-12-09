@@ -106,24 +106,20 @@ void tree_post_order(tree* tree)
 	struct _tree_nd* nd=NULL;
 	int top=-1;
 	void* stack[1000];
-	if(!tree) return;
+	if(!tree||!tree->root) return;
 	nd=tree->root;
 	while(1){
-		if(nd){
+		if(nd->left&&pre_nd!=nd->left&&(nd->right&&pre_nd!=nd->right||!nd->right)){
 			stack[++top]=nd;
 			nd=nd->left;
+		}else if(nd->right&&pre_nd!=nd->right){
+			stack[++top]=nd;
+			nd=nd->right;
 		}else{
-			if(top==-1) break;
-				nd=stack[top--];
-			if(!nd->left&&!nd->right || nd->left&&!nd->right&&nd->left==pre_nd || nd->right&&nd->right==pre_nd){
-				printf("node data:%d\n",*(int*)nd->data);
-				pre_nd=nd;
-				if(top==-1) break;
-					nd=stack[top--];
-			}else{
-				stack[++top]=nd;
-				nd=nd->right;
-			}
+			printf("node data:%d\n",*(int*)nd->data);
+			pre_nd=nd;
+			if(top==-1) return;
+			nd=stack[top--];
 		}
 	}
 	return;
