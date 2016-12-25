@@ -68,7 +68,7 @@ void tree_pre_order(tree* tree)
 	nd=tree->root;
 	while(1){
 		if(nd){
-			printf("node data:%d\n",*(int*)nd->data);
+			printf("%d ",*(int*)nd->data);
 			if(nd->right)
 				stack[++top]=nd->right;
 			nd=nd->left;
@@ -77,6 +77,7 @@ void tree_pre_order(tree* tree)
 			nd=stack[top--];
 		}
 	}
+	printf("\n");
 	return;
 }
 void tree_in_order(tree* tree)
@@ -93,10 +94,11 @@ void tree_in_order(tree* tree)
 		}else{
 			if(top==-1) break;
 			nd=stack[top--];
-			printf("node data:%d\n",*(int*)nd->data);
+			printf("%d ",*(int*)nd->data);
 			nd=nd->right;
 		}
 	}
+	printf("\n");
 	return;
 }
 
@@ -116,9 +118,12 @@ void tree_post_order(tree* tree)
 			stack[++top]=nd;
 			nd=nd->right;
 		}else{
-			printf("node data:%d\n",*(int*)nd->data);
+			printf("%d ",*(int*)nd->data);
 			pre_nd=nd;
-			if(top==-1) return;
+			if(top==-1){
+				printf("\n");
+				return;
+			}
 			nd=stack[top--];
 		}
 	}

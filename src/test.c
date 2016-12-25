@@ -22,18 +22,31 @@ int cmp(void* max, void* min)
 list* input_to_list(int array[],int length,int type)
 {
 	list* l=NULL;
-	int i=0;
+	int i=1;
 	list* (*func)(list*,void*,int)=list_insert;
 	if(type)
 		func=clist_insert;
-	printf("please enter %d numbers\n", length);
-	while(i<length){
-		printf("the number:");
-		scanf("%d",array+i);
-		l=(*func)(l,array+i,i);
+	printf("请输入 %d 个数字\n", length);
+	while(i<=length){
+		printf("第%d个数:",i);
+		scanf("%d",array+i-1);
+		l=(*func)(l,array+i-1,i-1);
 		i++;
 	}
 	return l;
+}
+tree* input_to_tree(int array[],int length)
+{
+	tree* t=tree_new(cmp);
+	int i=1;
+	printf("请输入 %d 个数字\n", length);
+	while(i<=length){
+		printf("第%d个数:",i);
+		scanf("%d",array+i-1);
+		tree_insert(t,array+i-1);
+		i++;
+	}
+	return t;
 }
 void list_test(int length)
 {
@@ -55,11 +68,11 @@ void clist_reverse_test(int length)
 {
 	list* x=NULL;
 	int* array=NULL;
+	int i=0;
 	array=malloc(sizeof(int)*length);
-	printf("#############clist reverse##############\n");
+	printf("#############单链表逆转##############\n");
 	x=input_to_list(array,length,1);
 	x=clist_reverse(x);
-	int i=0;
 	while(i<length)
 	{
 		printf(" %d ",*(int*)clist_query(x,i));
@@ -77,11 +90,11 @@ void list_merge_test(int length)
 	int* array2=NULL;
 	array1=malloc(sizeof(int)*length);
 	array2=malloc(sizeof(int)*length);
-	printf("#############list merge##############\n");
+	printf("#############单链表合并##############\n");
 	x=input_to_list(array1,length,0);
 	y=input_to_list(array2,length,0);
 	y=list_merge(x, y,cmp);
-	while (i<20) {
+	while (i<length*2) {
 		printf(" %d ", *(int*)list_query(y, i));
 		i++;
 	}
@@ -96,7 +109,7 @@ void clist_josephus_test(int length,int m)
 	int* array=NULL;
 	int i=0;
 	array=malloc(sizeof(int)*length);
-	printf("#############josephus##############\n");
+	printf("#############约瑟夫问题##############\n");
 	x=input_to_list(array,length,1);
 	x=clist_josephus(x,length,m);
 	while (i<length) {
@@ -107,25 +120,53 @@ void clist_josephus_test(int length,int m)
 	free(array);
 }
 
-void tree_test()
+void tree_test(int length)
 {
-	tree* tree=tree_new(cmp);
-	int i=0;
-	while(i<5)
-	{
-		tree_insert(tree,&seq[i]);
-		i++;
-	}
-	printf("pre order\n");
+	int* array=NULL;
+	tree* tree=NULL;
+	printf("#############二叉树##############\n");
+	array=malloc(sizeof(int)*length);
+	tree=input_to_tree(array,length);
+	printf("先序遍历\n");
 	tree_pre_order(tree);
-	printf("in order\n");
+	printf("中序遍历\n");
 	tree_in_order(tree);
-	printf("post order\n");
+	printf("后序遍历\n");
 	tree_post_order(tree);
 }
 
 int main()
 {
-	clist_josephus_test(10,2);
-	return 0;
+	int s=0,length=0;
+	while(1){
+		printf("1. 编写一个循环不少于己于20行语句的程序（不带头节点单链表）\n");
+		printf("2. 约瑟夫问题\n");
+		printf("3. 合并两个有序链表\n");
+		printf("4. 单链表逆转\n");
+		printf("5. 二叉树遍历\n");
+		printf("6. test6\n");
+		printf("7. 退出\n");
+		scanf("%d",&s);
+		if(s==7){
+			return 0;
+		}
+		printf("请输入构造节点的数目");
+		scanf("%d",&length);
+		if(s==1){
+			list_test(length);
+		}else if(s==2){
+			int n=0;
+			printf("约瑟夫问题的间隔");
+			scanf("%d",&n);
+			clist_josephus_test(length,2);
+		}else if(s==3){
+			list_merge_test(length);
+		}else if(s==4){
+			clist_reverse_test(length);
+		}else if(s==5){
+			tree_test(length);
+		}else if(s==6){
+
+		}
+	}
 }
